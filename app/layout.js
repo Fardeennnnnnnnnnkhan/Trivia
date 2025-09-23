@@ -2,7 +2,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import Footer from "@/components/ui/Footer";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -10,8 +9,6 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
-
-
 
 export default function RootLayout({ children }) {
   return (
