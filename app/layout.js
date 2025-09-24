@@ -5,10 +5,14 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const inter = Inter({
-  variable: "--font-inter",
+import { Crimson_Pro } from "next/font/google"
+
+// load Crimson Pro
+const crimson = Crimson_Pro({
   subsets: ["latin"],
-});
+  weight: ["400", "600", "700"], // choose the weights you need
+  variable: "--font-crimson",   // for CSS variable usage
+})
 
 export default function RootLayout({ children }) {
   return (
@@ -18,7 +22,7 @@ export default function RootLayout({ children }) {
       >
     <html lang="en"  suppressHydrationWarning>
       <body
-        className={`${inter.className}antialiased`}
+        className={`${crimson.className}antialiased`}
       >
 
           <ThemeProvider
