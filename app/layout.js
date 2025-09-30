@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { Crimson_Pro } from "next/font/google"
+import { dark, neobrutalism } from "@clerk/themes";
 
 // load Crimson Pro
 const crimson = Crimson_Pro({
@@ -16,13 +17,16 @@ const crimson = Crimson_Pro({
 
 export default function RootLayout({ children }) {
   return (
-      <ClerkProvider 
+    <ClerkProvider
+    appearance={{
+      baseTheme: [ neobrutalism],
+    }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
       navigate={(to) => Router.push(to)}
       >
     <html lang="en"  suppressHydrationWarning>
       <body
-        className={`${crimson.className}antialiased`}
+        className={`${crimson.className} antialiased`}
       >
 
           <ThemeProvider
