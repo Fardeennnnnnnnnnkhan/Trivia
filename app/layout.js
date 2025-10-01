@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { Crimson_Pro } from "next/font/google"
 import { dark, neobrutalism } from "@clerk/themes";
+import Footer from "@/components/ui/Footer";
 
 // load Crimson Pro
 const crimson = Crimson_Pro({
@@ -26,18 +27,20 @@ export default function RootLayout({ children }) {
       >
     <html lang="en"  suppressHydrationWarning>
       <body
-        className={`${crimson.className} antialiased`}
+        // className={`${crimson.className} antialiased`}
+        className={`$ antialiased`}
       >
 
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
             >
-            <Header/>
+                 <Header />
             {children}
-            {/* <Footer /> */}
+            
+            {/* <Header /> */}
           </ThemeProvider>
       </body>
     </html>

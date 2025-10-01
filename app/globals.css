@@ -120,3 +120,99 @@
     @apply bg-background text-foreground;
   }
 }
+
+@theme inline {
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+/* Falling text animation used on SpotlightPage headings */
+@keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) rotate(-2deg);
+    filter: blur(2px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(8px) rotate(0deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fall-in {
+  display: inline-block;
+  opacity: 0;
+  animation-name: fallIn;
+  animation-duration: 1100ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Infinite moving cards marquee */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation-name: scroll;
+  animation-duration: var(--animation-duration, 40s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--animation-direction, forwards);
+  will-change: transform;
+}
+.grid-background {
+  /* position: fixed; */
+  /* top: 0;
+  left: 0; */
+  /* width: 100%;
+  height: 100%; */
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.grid-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.9));
+}
+
+/* @layer utilities{
+  .gradient{
+    @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600;
+  }
+  .gradient-title{
+    @apply gradient font-extrabold tracking-tighter  text-transparent bg-clip-text pb-2 pr-2;
+  }
+} */
