@@ -2,11 +2,17 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button"; // assuming you have shadcn/ui
+import { HoverBorderGradientDemo } from "./HoverButton";
+import Link from "next/link";
 
 export function SpotlightPage() {
   return (
     <>
       <div className="relative flex min-h-screen w-full overflow-hidden bg-black/[0.96] antialiased items-center justify-center">
+        {/* Top-left brand link (visible only on this page) */}
+        <Link href="/" className="fixed top-3 left-4 z-[6000]">
+          <h1 className="text-2xl md:text-3xl font-light">Trivia</h1>
+        </Link>
         {/* Grid Background with Vignette */}
         <div
           className={cn(
@@ -46,12 +52,7 @@ export function SpotlightPage() {
 
           {/* Buttons */}
           <div className="mt-8 flex items-center justify-center gap-4">
-            <Button className="px-6 py-3 text-base font-medium rounded-lg bg-white text-black hover:bg-neutral-200">
-              Get Started
-            </Button>
-            {/* <Button variant="outline" className="px-6 py-3 text-base font-medium rounded-lg border border-neutral-600 text-white hover:bg-neutral-900">
-            Watch Demo
-          </Button> */}
+            <HoverBorderGradientDemo />
           </div>
         </div>
       </div>
