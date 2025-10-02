@@ -5,14 +5,17 @@ import React from "react";
 
 export function HowItWorks() {
   return (
-    <div
-      className="h-[20rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
+    <div className="h-[20rem] w-full max-w-6xl mx-auto px-4 sm:px-6 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <InfiniteMovingCards
+        items={testimonials}
+        direction="right"
+        speed="fast"
+      />
     </div>
   );
 }
 
-const testimonials =[
+const testimonials = [
   {
     step: "Step 1",
     quote:
