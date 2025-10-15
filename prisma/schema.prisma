@@ -80,13 +80,15 @@ model IndustryInsight {
   industry          String        @unique
   users             User[]
 
+  salaryRanges      Json[]   
   // Industry trends
   growthRate        Float
-  demandLevel       DemandLevel
+  demandLevel       String    // "High", "Medium", "Low"
   topSkills         String[]
 
+
   // Market conditions
-  marketOutlook     MarketOutlook
+  marketOutlook     String    // "Positive", "Neutral", "Negative"
   keyTrends         String[]
 
   // Learning suggestions
