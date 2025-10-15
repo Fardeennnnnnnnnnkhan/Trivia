@@ -1,0 +1,111 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String  @id @default(uuid())
+  clerkUserId String  @unique
+  email       String  @unique
+  name        String?
+  imageUrl    String?
+  industry    String? // Combined industry-subindustry (e.g: "tech - software - development")
+
+  industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
+
+  bio        String?
+  experience Int? // Years of Experience
+  skills     String[] // Array of skills
+
+  assessments  Assessment[]
+  resume       Resume?
+  coverLetters CoverLetter[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Assessment {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  quizScore      Float
+  questions      Json[] // Array of {question, answer, userAnswer, isCorrect}
+  category       String
+  improvementTip String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model Resume {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  content   String   @db.Text
+  atsScore  Float?
+  feedback  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CoverLetter {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  content        String   @db.Text
+  jobDescription String?  @db.Text
+  companyName    String
+  jobTitle       String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model IndustryInsight {
+  id       String @id @default(cuid())
+  industry String @unique
+  users    User[]
+
+  salaryRanges Json[]
+  // Industry trends
+  growthRate   Float
+  demandLevel  String // "High", "Medium", "Low"
+  topSkills    String[]
+
+  // Market conditions
+  marketOutlook String // "Positive", "Neutral", "Negative"
+  keyTrends     String[]
+
+  // Learning suggestions
+  recommendedSkills String[]
+
+  // Timestamps
+  lastUpdated DateTime @default(now())
+  nextUpdate  DateTime
+}
+
+enum MarketOutlook {
+  Positive
+  Neutral
+  Negative
+}
+
+enum DemandLevel {
+  High
+  Medium
+  Low
+}
