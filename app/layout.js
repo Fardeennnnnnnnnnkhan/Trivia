@@ -1,4 +1,4 @@
-"use client";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
@@ -9,6 +9,7 @@ import { Crimson_Pro } from "next/font/google";
 import { neobrutalism } from "@clerk/themes";
 import { FloatingNavDemo } from "./pages/FloatingNavbar";
 import Link from "next/link";
+import FloatingNavServer from "./pages/FloatingNavServer";
 
 // load Crimson Pro
 const crimson = Crimson_Pro({
@@ -24,9 +25,9 @@ export default function RootLayout({ children }) {
         baseTheme: [neobrutalism],
       }}
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      navigate={(to) => Router.push(to)}
+      // navigate={(to) => Router.push(to)}
     >
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning={true}>
         <body
           // className={`${crimson.className} antialiased`}
           className={`$ antialiased`}
@@ -40,7 +41,8 @@ export default function RootLayout({ children }) {
             {/* Top-left brand link */}
          
             {/* <Header /> */}
-            <FloatingNavDemo />
+            {/* <FloatingNavDemo /> */}
+            <FloatingNavServer/>
             {children}
 
             {/* <Header /> */}

@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React from "react";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
@@ -18,7 +18,11 @@ import {
   GraduationCap,
   ChevronDown,
 } from "lucide-react";
-export function FloatingNavDemo() {
+// import { checkUser } from "@/lib/checkUser";
+export  function  FloatingNavDemo({user}) {
+  console.log(user);
+  // const user = await checkUser()
+  // console.log(user);
   const navItems = [
     {
       name: "Home",
