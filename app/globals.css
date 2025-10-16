@@ -211,11 +211,14 @@
   background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.9));
 }
 
-/* @layer utilities{
-  .gradient{
-    @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600;
-  }
-  .gradient-title{
-    @apply gradient font-extrabold tracking-tighter  text-transparent bg-clip-text pb-2 pr-2;
-  }
-} */
+.gradient-title {
+  font-size: 80px;
+  font-weight: 900;
+  background: linear-gradient(to bottom, #777 0%, #fff 45%, #fff 55%, #555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.2;         /* Add breathing room */
+  padding-bottom: 10px;     /* Prevent clipping of descenders */
+}
