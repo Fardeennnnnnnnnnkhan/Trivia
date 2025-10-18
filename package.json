@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.32.2",
@@ -29,10 +30,12 @@
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
+    "@uiw/react-md-editor": "^4.0.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cobe": "^0.6.5",
     "date-fns": "^4.1.0",
+    "html2pdf.js": "^0.12.1",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
     "next": "15.5.4",

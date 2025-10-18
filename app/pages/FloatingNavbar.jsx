@@ -20,9 +20,7 @@ import {
 } from "lucide-react";
 // import { checkUser } from "@/lib/checkUser";
 export  function  FloatingNavDemo({user}) {
-  console.log(user);
   // const user = await checkUser()
-  // console.log(user);
   const navItems = [
     {
       name: "Home",

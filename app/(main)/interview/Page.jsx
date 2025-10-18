@@ -3,7 +3,7 @@ import StatsCards from "./_components/stat-card";
 import PerformanceChart from "./_components/performance-card";
 import QuizList from "./_components/quiz-list";
 
-export default async function InterviewPrepPage() {
+export default async function () {
   const assessments = await getAssessments();
 
   return (

@@ -222,3 +222,7 @@
   line-height: 1.2;         /* Add breathing room */
   padding-bottom: 10px;     /* Prevent clipping of descenders */
 }
+#resume-pdf {
+  background: #fff !important;
+  color: #000 !important;
+}

@@ -88,9 +88,6 @@ export default function Quiz() {
   if (generatingQuiz) {
     return <BarLoader className="mt-4" width={"100%"} color="gray" />;
   }
-
-  console.log(resultData)
-
 //   Show results if quiz is completed
   if (resultData) {
     return (
