@@ -74,7 +74,7 @@ const OnBoardingForm = () => {
     <div className="flex justify-center items-center bg-transparent">
       <Card className="w-full max-w-lg mt-10 mx-2 ">
         <CardHeader className="">
-          <CardTitle className="gradient-title text-4xl">
+          <CardTitle className="gradient-title-small">
             Complete Your Profile
           </CardTitle>
           <CardDescription>

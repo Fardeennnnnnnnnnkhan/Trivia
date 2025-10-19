@@ -222,6 +222,17 @@
   line-height: 1.2;         /* Add breathing room */
   padding-bottom: 10px;     /* Prevent clipping of descenders */
 }
+.gradient-title-small {
+  font-size: 40px;
+  font-weight: 200;
+  background: linear-gradient(to bottom, #777 0%, #fff 45%, #fff 55%, #555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 1.2;         /* Add breathing room */
+  padding-bottom: 10px;     /* Prevent clipping of descenders */
+}
 #resume-pdf {
   background: #fff !important;
   color: #000 !important;

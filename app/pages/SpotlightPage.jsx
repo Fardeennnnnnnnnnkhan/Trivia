@@ -11,7 +11,7 @@ export function SpotlightPage() {
       <div className="relative flex min-h-screen w-full overflow-hidden bg-black/[0.96] antialiased items-center justify-center">
         {/* Top-left brand link (visible only on this page) */}
         <Link href="/" className="fixed top-3 left-4 z-[6000]">
-          <h1 className="text-2xl md:text-3xl font-light">Trivia</h1>
+          {/* <h1 className="text-2xl md:text-3xl font-light">Trivia</h1> */}
         </Link>
         {/* Grid Background with Vignette */}
         <div
@@ -45,7 +45,7 @@ export function SpotlightPage() {
             />
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl font-normal text-neutral-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl font-extralight  text-neutral-400">
             Advance your career with personalized guidance, interview prep, and
             AI-powered tools for job success.
           </p>
@@ -75,7 +75,7 @@ function AnimatedWords({ text, delayStart = 0, stagger = 0.12 }) {
         return (
           <span
             key={`word-${index}`}
-            className="fall-in bg-clip-text text-transparent bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600"
+            className="fall-in font-extralight bg-clip-text text-transparent bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600"
             style={{ animationDelay: `${delay}s` }}
           >
             {token}
