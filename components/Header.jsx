@@ -22,31 +22,27 @@ import Image from "next/image";
 export default  function Header({user}) {
   // supports-[backdrop-filter]:bg-background/60
   return (
-   <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-full border backdrop-blur-md bg-transparent shadow-lg w-[40%] max-w-6xl">
-  <nav className="flex items-center justify-between h-16 px-6">
+  <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[85%] md:w-[75%] lg:w-[65%] xl:w-[55%] max-w-6xl rounded-full border backdrop-blur-md bg-transparent shadow-lg transition-all duration-300">
+  <nav className="flex items-center justify-between h-14 sm:h-16 px-4 sm:px-6">
+    {/* Logo */}
     <Link href="/" className="flex items-center space-x-2">
-      {/* <Image
-        src={"/logo.png"}
-        alt="Sensai Logo"
-        width={200}
-        height={60}
-        className="h-12 py-1 w-auto object-contain"
-      /> */}
-      <h1 className="text-3xl font-light">Trivia</h1>
+      <h1 className="text-2xl sm:text-3xl font-light">Trivia</h1>
     </Link>
 
     {/* Action Buttons */}
-    <div className="flex items-center space-x-2 md:space-x-4">
+    <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-4">
       <SignedIn>
+        {/* Dashboard Button */}
         <Link href="/dashboard">
           <Button
             variant="outline"
-            className="hidden md:inline-flex items-center gap-2"
+            className="hidden md:inline-flex items-center gap-2 text-sm"
           >
             <LayoutDashboard className="h-4 w-4" />
             Industry Insights
           </Button>
-          <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+          {/* Mobile Dashboard Icon */}
+          <Button variant="ghost" className="md:hidden w-9 h-9 p-0">
             <LayoutDashboard className="h-4 w-4" />
           </Button>
         </Link>
@@ -54,9 +50,9 @@ export default  function Header({user}) {
         {/* Growth Tools Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="flex items-center gap-2">
+            <Button className="flex items-center gap-1 sm:gap-2 text-sm px-3">
               <StarsIcon className="h-4 w-4" />
-              <span className="hidden md:block">Growth Tools</span>
+              <span className="hidden sm:block">Tools</span>
               <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -83,9 +79,12 @@ export default  function Header({user}) {
         </DropdownMenu>
       </SignedIn>
 
+      {/* Sign In / User Button */}
       <SignedOut>
         <SignInButton>
-          <Button variant="outline">Sign In</Button>
+          <Button variant="outline" className="text-sm px-3 py-1">
+            Sign In
+          </Button>
         </SignInButton>
       </SignedOut>
 
@@ -93,7 +92,7 @@ export default  function Header({user}) {
         <UserButton
           appearance={{
             elements: {
-              avatarBox: "w-12 h-12",
+              avatarBox: "w-10 h-10 sm:w-12 sm:h-12",
               userButtonPopoverCard: "shadow-xl",
               userPreviewMainIdentifier: "font-semibold",
             },
@@ -104,6 +103,7 @@ export default  function Header({user}) {
     </div>
   </nav>
 </header>
+
 
   );
 }

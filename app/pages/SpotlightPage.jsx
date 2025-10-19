@@ -52,7 +52,9 @@ export function SpotlightPage() {
 
           {/* Buttons */}
           <div className="mt-8 flex items-center justify-center gap-4">
-            <HoverBorderGradientDemo />
+           <Link href="/dashboard">
+    <HoverBorderGradientDemo />
+  </Link>
           </div>
         </div>
       </div>
