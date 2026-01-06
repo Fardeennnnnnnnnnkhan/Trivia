@@ -55,6 +55,7 @@ export async function generateIndustryInsight(){
 
         if(!user.industryInsight){
            const insights = await generateAIInsights(user.industry)
+          //  console.log(insights)
            const industryInsight  = await db.industryInsight.create({
             data:{
                 industry : user.industry,
@@ -62,6 +63,7 @@ export async function generateIndustryInsight(){
                 nextUpdate : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) 
             }
            })
+           console.log(industryInsight)
            return industryInsight;
         }
 

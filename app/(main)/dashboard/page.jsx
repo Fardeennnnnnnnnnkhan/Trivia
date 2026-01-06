@@ -5,11 +5,11 @@ import DashBoardView from './_components/DashBoardView';
 
 const Dashboard =  async () => {
     const {isOnboarded} = await getuserOnBoardingStatus();
-    const insights = await generateIndustryInsight();
     
     if(!isOnboarded){
       redirect('/onboarding');
     }
+    const insights = await generateIndustryInsight();
   return (
     <div>
       <DashBoardView insights = {insights} />
